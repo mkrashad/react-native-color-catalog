@@ -1,13 +1,18 @@
 import React from "react"
-import {Text, View} from "react-native"
+import ColorList from "./components/ColorList"
+import ColorDetails from "./components/ColorDetails"
+import { NavigationContainer } from "@react-navigation/native"
+import { createStackNavigator } from "@react-navigation/stack"
 
-export default function App (){
-  return(
-  <View style={{padding: 50}}>
-      <Text>Hello World!</Text>
-      <Text>Red</Text>
-      <Text>Green</Text>
-      <Text>Blue</Text>
-  </View>
+const {Navigator, Screen } = createStackNavigator()
+
+export default function App () {
+  return (
+    <NavigationContainer>
+      <Navigator>
+        <Screen name="Home" options={{title: "Color List"}} component={ColorList}/>
+        <Screen name="Details" component={ColorDetails} />
+      </Navigator>
+    </NavigationContainer>
   )
 }
